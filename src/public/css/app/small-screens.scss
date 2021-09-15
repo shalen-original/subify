@@ -1,0 +1,20 @@
+/*
+    This CSS is used to display an error message if the app is loaded on a small screen
+    This CSS overrides everything else: this is the reason for all the various the !important.
+*/
+
+#error-screen-too-small {
+    display: none;
+}
+
+@media (max-width: 700px) {
+    #sidebar-toggle, #sidebar, #modal-error,
+    #modal-input-time, #app, #app-progress {
+        display: none !important;
+    }
+
+    #error-screen-too-small {
+        display: block !important;
+        min-width: 225px;
+    }
+}

@@ -1,0 +1,25 @@
+@import 'app/main-grid';
+@import 'app/progress';
+@import 'app/table-container';
+@import 'app/startup';
+@import 'app/style';
+@import 'app/small-screens';
+
+/*
+    Generic top level directives
+*/
+
+html {
+    /* overflow: hidden; */
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Bulma "addon" to center vertically stuff in columns*/
+.column.has-vertically-aligned-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

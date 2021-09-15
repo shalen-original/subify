@@ -1,0 +1,11 @@
+@import 'font-awesome/scss/font-awesome';
+@import 'bulma/bulma';
+@import './app';
+
+#top-button {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 100;
+}

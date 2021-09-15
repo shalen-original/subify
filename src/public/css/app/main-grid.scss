@@ -1,0 +1,27 @@
+@import 'app/constants';
+
+/*
+    All the directives for the main CSS grid guiding the entire app
+ */
+
+.app {
+    margin-left: $sidebar_width_reduced;
+    display: grid;
+    grid-template-columns: 1fr $app_divider_width 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+        "table divider-vert video";
+    height: calc(100vh - #{$progress_bar_height});
+
+    overflow: hidden;
+}
+
+.app-table-container { grid-area: table; }
+
+.app-divider-vertical { grid-area: divider-vert; }
+
+.app-video-container { grid-area: video; }
+
+.app-divider-horizontal { grid-area: divider-hor; }
+
+[class*="-container"] { padding: .5rem; }

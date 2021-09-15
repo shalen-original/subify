@@ -1,0 +1,60 @@
+@import 'app/constants';
+
+/*
+    Appearance of the subtitle table + fixed header
+ */
+
+.app-table-container {
+
+    overflow: hidden;
+
+    // Tables column width are fixed
+    table {
+        table-layout: fixed;
+        border-collapse: separate;
+        overflow-x: hidden;
+    }
+
+    // The table used as a header has a fixed height
+    #subtitle-table-header {
+        margin-bottom: 0;
+        height: $subtitle_table_header_height;
+    }
+
+    #subtitle-table {
+        display: block;
+        overflow-y: auto;
+        max-height: calc(100% - #{$subtitle_table_header_height});
+
+        tr.active {
+            background-color: #7bdfff;
+        }
+
+        td.editing {
+            background-color: #ffa57b;
+        }
+
+        tbody {
+            display: table;
+            width: 100%;
+        }
+    }
+
+    td:first-child, th:first-child {
+        width: $index_column_width;
+        min-width: $index_column_width;
+        max-width: $index_column_width;
+    }
+
+    td:nth-child(2), td:nth-child(3), th:nth-child(2), th:nth-child(3) {
+        width: $time_column_width;
+        min-width: $time_column_width;
+        max-width: $time_column_width;
+    }
+
+    td:last-child, th:last-child {
+        width: $text_column_width;
+        min-width: $text_column_width;
+        max-width: $time_column_width;
+    }
+};

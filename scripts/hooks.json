@@ -1,0 +1,7 @@
+[
+    {
+        "id": "redeploy-subify",
+        "execute-command": "/home/remo/apps/subify/scripts/docker.sh",
+        "command-working-directory": "/home/remo/apps/subify/scripts"
+    }
+]

@@ -1,0 +1,103 @@
+@import 'app/constants';
+
+.app-progress-container {
+    padding: 0;
+    background-color: $progress_bar_bg;
+    height: $progress_bar_height;
+    margin-left: $sidebar_width_reduced;
+}
+
+@mixin thumb() {
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    background: $progress_bar_fg_hl;
+}
+
+@mixin slider() {
+    background: #aaa;
+    border-radius: 1.3px;
+    height: 4px;
+}
+
+.app-progress-container {
+
+    input[type=range] {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        -webkit-appearance: none;  /* Override default CSS styles */
+        appearance: none;
+        outline: none;
+        height: $progress_bar_height;
+
+        /* Slider thumb styling */
+        &::-webkit-slider-thumb { 
+            @include thumb(); 
+            margin-top: -4px; 
+            /* Webkit only fix */
+        }
+        &::-moz-range-thumb { @include thumb(); }
+        &::-ms-thumb { @include thumb(); }
+        /* Slider bar styling */
+        &::-webkit-slider-runnable-track { @include slider(); }
+        &::-moz-range-track { @include slider(); }
+        &::-ms-track { @include slider(); }
+    }
+
+    #ctrl-right {
+        float: right;
+        padding-left: 1rem;
+    }
+
+    #ctrl-left {
+        overflow: hidden;
+        padding-left: 1rem;
+    }
+
+    #btn-mute,
+    #btn-full-screen {
+        cursor: pointer;
+        
+        &:hover {
+            color: #fff;
+        }
+    }
+
+    div span {
+        float: left;
+        padding-right: 1rem;
+        line-height: $progress_bar_height;
+        text-align: center;
+        color: $progress_bar_fg;
+    }
+
+    #current-time {
+        padding: 0;
+
+        &::after {
+            content: "\00a0";
+        }
+    }
+
+    #total-time {
+        color: #aaa;
+
+        &::before {
+            content: "\002f\00a0";
+        }
+    }
+
+    #progress {
+        width: 100%;
+    }
+
+    #volume {
+        padding-right: 1rem;
+        float: left;
+        width: auto;
+    }
+}

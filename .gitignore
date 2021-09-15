@@ -1,0 +1,18 @@
+## Ignored files/dirs ##
+
+# Node modules and dist
+node_modules/
+dist/
+
+# Swap files and backups
+**/*.swp
+**/*.kate-swp
+**/*.bkp
+**/*key*
+
+# Log files
+**/*.log 
+
+# Pdf files and other deliverables
+**/*.pdf
+**/*.zip

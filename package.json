@@ -1,0 +1,46 @@
+{
+  "name": "subify",
+  "description": "",
+  "keywords": [],
+  "version": "0.1.2",
+  "main": "dist/server.js",
+  "scripts": {
+    "test": "PORT=3000 NODE_ENV=test mocha --exit",
+    "test-win": "mocha --recursive --exit --es_staging",
+    "build": "gulp build",
+    "serve": "NODE_ENV=production node dist/server.js",
+    "dev": "gulp dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/teama8/subify.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "compression": "^1.7.1",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "@types/compression": "^0.0.34",
+    "@types/express": "^4.0.39",
+    "@types/node": "^7.0.12",
+    "browser-sync": "^2.18.13",
+    "bulma": "^0.6.1",
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "del": "^3.0.0",
+    "font-awesome": "^4.7.0",
+    "gulp": "^3.9.1",
+    "gulp-imagemin": "^3.4.0",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-typescript": "^3.2.3",
+    "import-export": "^1.0.1",
+    "minimist": "^1.2.0",
+    "mocha": "^4.0.1",
+    "node-mocks-http": "^1.6.6",
+    "typescript": "^2.6.1"
+  }
+}

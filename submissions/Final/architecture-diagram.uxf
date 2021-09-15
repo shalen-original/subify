@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>6</zoom_level>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>420</x>
+      <y>162</y>
+      <w>144</w>
+      <h>138</h>
+    </coordinates>
+    <panel_attributes>symbol=component
+Shared
+EventBus
+
+Keeps a list of all the
+registred listeners for each
+event and allows components
+to dispatch events</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>180</x>
+      <y>162</y>
+      <w>120</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>symbol=component
+SidebarControls
+
+Handles the sidebar controls
+that are not handled 
+by VideoControls</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>432</x>
+      <y>42</y>
+      <w>120</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>symbol=component
+SubtitleTable
+
+Wraps the subtitle tables,
+mantains it updated and 
+broadcasts changes</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>504</x>
+      <y>360</y>
+      <w>120</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>symbol=component
+SubtitleInput
+
+Boardacasts the loading
+of a new subtitle file</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>180</x>
+      <y>240</y>
+      <w>120</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>symbol=component
+LocalVideo
+
+Wraps the video element
+and broadcasts video-related
+events</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>660</x>
+      <y>330</y>
+      <w>120</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>symbol=component
+VerticalDivider
+
+Wraps the divider and 
+contains the logic that allow
+its movement</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>360</x>
+      <y>360</y>
+      <w>120</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>symbol=component
+VideoControls
+
+Handles the video controls,
+like play/pause, seekbar,
+volume...</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>684</x>
+      <y>162</y>
+      <w>120</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>symbol=component
+ErrorModalWindow
+
+Shows an error modal
+window with a message</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>684</x>
+      <y>240</y>
+      <w>120</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>symbol=component
+TimeInput
+ModalWindow
+
+Allows the user to input
+a SubtitleTime</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>294</x>
+      <y>264</y>
+      <w>138</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+
+video-changed
+time-updated
+subtitle-updated
+video-play
+video-pause</panel_attributes>
+    <additional_attributes>10.0;20.0;210.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>294</x>
+      <y>174</y>
+      <w>138</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+subtitle-text-changed</panel_attributes>
+    <additional_attributes>10.0;20.0;210.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>438</x>
+      <y>96</y>
+      <w>102</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+subtitle-text-changed
+error-modal-show
+time-input-modal-show</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>534</x>
+      <y>294</y>
+      <w>90</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+subtitle-file-changed</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>558</x>
+      <y>180</y>
+      <w>138</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+error-modal-show</panel_attributes>
+    <additional_attributes>10.0;20.0;210.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>558</x>
+      <y>258</y>
+      <w>138</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+
+time-input-modal-show</panel_attributes>
+    <additional_attributes>10.0;20.0;210.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>294</x>
+      <y>252</y>
+      <w>138</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+subtitle-text-changed</panel_attributes>
+    <additional_attributes>10.0;20.0;210.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>294</x>
+      <y>186</y>
+      <w>138</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+
+subtitle-file-changed</panel_attributes>
+    <additional_attributes>10.0;20.0;210.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>534</x>
+      <y>96</y>
+      <w>90</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+subtitle-file-changed
+subtitle-updated
+video-play
+video-pause</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>438</x>
+      <y>294</y>
+      <w>60</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+video-play
+video-pause</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+</diagram>

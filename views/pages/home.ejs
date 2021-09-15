@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+    <% include ../partials/navbar %>
+
+    <% include ../partials/noscriptBanner %>
+
+    <% include ../partials/browsersyncInject %>
+
+    <section class="hero is-dark is-bold">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-10">
+                        <h1 class="title">Subify</h1>
+                        <h2 class="subtitle">Free and open source subtitles editor.</h2>
+                    </div>
+                    <div class="column is-1">
+                        <a href="/app" class="button is-primary">Try me!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+
+            <h1 class="title">Hi, I'm subify</h1>
+            <h2 class="subtitle">I'm your new favourite subtitles editor.</h2>
+            <div class="content">
+                <p>Do you need to edit some subtitles? I am free, do not require any registration and run completely in your browser. <a href="/app">Start now!</a></p>
+            </div>
+
+            <hr />
+
+            <h3 class="title is-4">More details</h3>
+            <div class="content">
+                <p>Subify is a modern subtitle editor developed with state of the art web technologies which allows you to load a subtitle file, edit it, preview it in real time and then download the modified subtitles. This all happens in your browser, without needing to download nor install anything. Side by side with your subtitles, you can load the video file on which your subtitles will be previewed. Please note that everything still happens only in your browser: nor the video file neither the subtitle file you load are sent to our server.</p>
+                <p>As of now, only the SRT file format is supported: if you want to add some other supported format, ping us on Bitbucket or submit a pull request.</p>
+                <p>As of now, the only export format is WebVTT, which is a superset of SRT. Once again, is you need some other format ask on Bitbucket.</p>
+            </div>
+            <div class="box columns is-mobile">
+                <div class="column is-narrow has-vertically-aligned-content">
+                    <span class="icon is-large has-text-danger">
+                        <i class="fa fa-3x fa-exclamation-triangle"></i>
+                    </span>
+                </div>
+                <div class="column">
+                <p><strong>Note:</strong> While developing this app we used some fairly experimental web technologies. Therefore, this application only works on modern browsers. We guarantee proper functioning only on Chrome 63 or greater. </p>
+                </div>
+            </div>
+    </section>
+
+    <% include ../partials/footer %>
+</body>
+</html>

@@ -1,0 +1,98 @@
+@import 'app/constants';
+
+.startup-button {
+    margin:0;
+    padding:0;
+
+    color: $startup_fg;
+    background-color: $startup_bg;
+    border: 2px solid $startup_fg;
+    border-radius: 2px;
+
+    overflow: hidden;
+
+    p, i {
+        margin: 0.5em;
+    }
+    
+    label, > div {
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &:hover {
+        color: $startup_fg_hover;
+        background-color: $startup_bg_hover;
+    }
+
+    &:active {
+        background-color: $startup_bg_active;
+    }
+}
+
+.dotted-border {
+    height: 100%;
+    width: 100%;
+
+    border: 4px dashed #ccc;
+}
+
+#startup-app-table {
+
+    height: 100%;
+
+    div.dotted-border {
+        display: grid;
+        grid-template-columns: 1fr 50% 1fr;
+        grid-template-rows: 1fr 3em 3em 3em 1fr;
+        grid-template-areas:
+        ". . ."
+        ". sat--upload-file ."
+        ". sat--or ."
+        ". sat--create-new ."
+        ". . .";
+    }
+
+    #sat--upload-file {
+        grid-area: sat--upload-file;
+    } 
+
+    #sat--or {
+        grid-area: sat--or;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #sat--create-new {
+        grid-area: sat--create-new;
+    }
+}
+
+
+#startup-video {
+
+    height: 100%;
+    width: 100%;
+
+    div.dotted-border {
+        display: grid;
+        grid-template-columns: 1fr 50% 1fr;
+        grid-template-rows: 1fr 3em 1fr;
+        grid-template-areas:
+        ". . ."
+        ". startup--upload-video ."
+        ". . .";
+    }
+
+    #startup--upload-video {
+        grid-area: startup--upload-video;
+    } 
+}
+
+

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+
+    <!-- Syntax Highlighting -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script type="text/javascript" src="/js/topButton.js"></script>
+    <style>
+        .content pre{
+            padding:0;
+        }
+    </style>
+
+</head>
+<body>
+    <% include ../partials/navbar %>
+
+    <% include ../partials/noscriptBanner %>
+
+    <% include ../partials/browsersyncInject %>
+
+    <section class="hero is-dark is-bold">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">About</h1>
+                <h2 class="subtitle">Everything else you may or may not want to know.</h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h1 class="title">About us</h1>
+            <div class="columns">
+                <div class="column is-half">
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                <figure class="image is-64x64">
+                                    <img src="/assets/avatar-nardini.png" alt="Avatar of Matteo Nardini">
+                                </figure>
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <strong>Matteo Nardini</strong> <br>
+                                        I’ll be right back, I’m just thinging things. <br>
+                                        Student &amp; Full stack developer.
+                                    </p>
+                                </div>
+                                <nav class="level is-mobile">
+                                    <div class="level-left">
+                                        <a class="level-item" href="https://bitbucket.org/Shalen/">
+                                            <span class="icon is-small"><i class="fa fa-bitbucket"></i></span>
+                                        </a>
+                                        <a class="level-item" href="https://github.com/shalen-original">
+                                            <span class="icon is-small"><i class="fa fa-github"></i></span>
+                                        </a>
+                                        <a class="level-item" href="https://stackoverflow.com/users/6517911">
+                                            <span class="icon is-small"><i class="fa fa-stack-overflow"></i></span>
+                                        </a>
+                                        <a class="level-item" href="https://twitter.com/ShalenOriginal">
+                                            <span class="icon is-small"><i class="fa fa-twitter"></i></span>
+                                        </a>
+                                    </div>
+                                </nav>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="column is-half">
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                <figure class="image is-64x64">
+                                    <img src="/assets/avatar-scolati.png" alt="Avatar of Remo Scolati">
+                                </figure>
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <strong>Remo Scolati</strong><br>Student &amp; Full stack developer.
+                                        <br><br>
+                                    </p>
+                                </div>
+                                <nav class="level is-mobile">
+                                    <div class="level-left">
+                                        <a class="level-item" href="https://bitbucket.org/rscolati/">
+                                            <span class="icon is-small"><i class="fa fa-bitbucket"></i></span>
+                                        </a>
+                                        <a class="level-item" href="https://github.com/rscolati/">
+                                            <span class="icon is-small"><i class="fa fa-github"></i></span>
+                                        </a>
+                                        <a class="level-item" href="https://stackexchange.com/users/10642676">
+                                            <span class="icon is-small"><i class="fa fa-stack-exchange"></i></span>
+                                        </a>
+                                        <a class="level-item" href="https://rscolati.xyz/">
+                                            <span class="icon is-small"><i class="fa fa-globe"></i></span>
+                                        </a>
+                                    </div>
+                                </nav>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            <div class="content">We are two computer science students at the Free University of Bolzano and this is our project for the Internet and Mobile Systems course. For this course, we had to develop a website and we choose to create an online subtitle-editing platform: this allowed us to experiment with a bunch of new technologies like the Javascript <code>File API</code> and many more.</div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h1 class="title" id="section-top">About Subify</h1>
+            <a href="#section-top" class="button is-info" id="top-button">
+                <span class="icon is-small"><i class="fa fa-angle-double-up"></i></span>&nbsp;Top
+            </a>
+
+            <div class="content">
+
+                <!-- Technical -->
+                <h2 id="section-technical">A technical overview of this project</h2>
+                <p>The main drive in choosing the technology stack for this project was to experience with new technologies, especially with those related to frontend development. In the remaining part of this page we will explain how Subify works internally, which technologies are used and which hurdles we had to overcome in order to reach the result we published. In order to use Subify, it is not necessary to read this page: it is meant for technical users which are interested in the technical details of this project.</p>
+                <p>We chose to divide this page in three main sections: one explaining the backend, one the frontend and the last one dedicated to DevOps.<p>
+
+                <h2 id="section-index">Index</h2>
+                <ul>
+                    <li><a href="#section-backend">The backend</a></li>
+                    <ul>
+                        <li><a href="#section-scalability">On JavaScript and scalability</a></li>
+                    </ul>
+                    <li><a href="#section-frontend">The frontend</a></li>
+                    <ul>
+                        <li><a href="#section-overview">Overview</a></li>
+                        <li><a href="#section-history">Layout history</a></li>
+                        <li><a href="#section-css-grid">Dividing the space: CSS Grid</a></li>
+                        <li><a href="#section-divider">Moving the vertical divider</a></li>
+                        <li><a href="#section-table-header">The strange case of Doctor <i>SubtitleTable</i> and <i>Mr Sticky Header</i></a></li>
+                        <li><a href="#section-app-logic">Application Logic</i></a></li>
+                        <li><a href="#section-file-api">To upload or not to upload: Javascript File API</a></li>
+                        <li><a href="#section-parsing-subtitles">Parsing subtitles &amp; realtime preview</a></li>
+                        <li><a href="#section-sidebar">Making the sidebar work</a></li>
+                        <li><a href="#section-video-controls">Wiring the video controls</a></li>
+                        <li><a href="#section-modals">Modal Windows</a></li>
+                        <li><a href="#section-small-screens">Small Screens</a></li>
+                    </ul>
+                    <li><a href="#section-devops">DevOps</a></li>
+                    <ul>
+                        <li><a href="#section-drafts">Early drafts</a></li>
+                        <li><a href="#section-build">Develop, build and test</a></li>
+                        <li><a href="#section-deploy">Then we deploy, obviously</a></li>
+                        <li><a href="#section-docker">On Docker, or; <i>How are we going to tie it all together?</i></a></li>
+                        <li><a href="#section-finally">Finally, full automation</a></li>
+                    </ul>
+                    <li><a href="#section-future">The Future</a></li>
+                </ul>
+
+                <!-- Backend -->
+                <h3 id="section-backend">The backend</h3>
+
+                <!-- Scalability -->
+                <h4 id="section-scalability">On JavaScript and scalability</h4>
+                <p>The backend was fairly simple for this project, since most of the functionality of this webapp is client-side: the server only has to serve the correct pages at the correct route and to perform some basic server-side rendering. We chose to use <code>NodeJS</code> as our backend environment: it is more modern than other technologies (we're looking at you, PHP) and offers many of the functionalities required for a modern webapp out of the box. Moreover, it allows us to use <code>Javascript</code> both on the frontend and on the backend, reducing the overall effort required to setup a proper build system.</p>
+                
+                <p>However, we both noticed a problem with <code>Javascript</code>: it does not scale. Not that well, at least. The situation is improved with the last revisions of the language specification, but some core problem remains: the main one is that, if the project is big enough and you need to use a function you developed a while ago, you will not remember the exact type of the parameters that you need to pass. This problem could be solve by an appropriate use of documentation (docstrings and similar), but, as you know, documentation has the bad habit of going out of sync with the actual content of the code. We think that the best solution to Javascript's scaling issues is <code>Typescript</code>: it is a superset of <code>Javascript</code> developed and maintained by Microsoft which adds static typing and some other useful features. During the build, a compiler converts <code>Typescript</code> files to plain old <code>Javascript</code> files, complaining if it finds some type errors or similar.</p>
+                <p>In addition to plain <code>NodeJS</code> we use <code>Express</code> as server middleware. <code>Express</code> allows to easily setup the routes that the server should serve by using a very expressive syntax (no pun intended). Additionally, it allows to easily enable functionalities required by all modern production-ready websites, like for example gzip compression. <code>Express</code> works really well in tandem with a server-side rendering engine responsible of composing various HTML pieces into a single page presentable to the user: in this way, for example, we can avoid repeating on every page the code required for the header and the footer. We chose to use <code>EmbeddedJS</code> (ejs), due to its semplicity: the templating language is <code>Javascript</code>, instead of some new weird language created only for the rendering engine (if you want an example of how bad this can become, take a look at Thymeleaf). This allows us to focus on actually using the engine to produce something instead of losing time learning yet another language.</p>
+
+                <!-- Frontend -->
+                <h3 id="section-frontend">The frontend</h3>
+
+                <!-- Overview -->
+                <h4 id="section-overview">Overview</h4>
+                <p>The "easy" part of the frontend involves the "Home" page and the "About" page: they contain a navigation menu, a footer and some static content. We did not want to reinvent the wheel, therefore we used <code>Bulma</code> to style these pages. It is a CSS-only framework which offered all the layouts functionalities we needed and is much more flexible than Bootstrap while managing to be a bit less intrusive. With Bulma, these pages did not pose any significant challenge.</p>
+                <p>The tough part regards the <code>/app</code> route, which contains the subtitle editor itself. Also here we used Bulma for some aspects (like, for example, the modal windows), but we had to write from scratch most of the style and all of the logic, because we had some very specific needs that no framework or library could address. We chose to use <code>SASS</code> as a stylesheet preprocessor. The app logic is quite intricate and involves several of moving parts, therefore we chose once again to use <code>Typescript</code> instead of plain <code>Javascript</code>. Once again, we have to thank Microsoft for helping us to preserve some mental sanity. Quite strange, ah?</p>
+                <p>While developing this webapp, we focused on learning and using new technologies instead of being concerned with browser compatibility: we used some of the most recent features of CSS (like <code>CSS Grid</code>) and Javascript (like <code>ES6 Modules</code>) even tough they don't have wide support (yet).</p>
+
+                <!-- History -->
+                <h4 id="section-history">Layout history</h4>
+                <p>Designing the layout was not easy: we wanted to use the available screen space in a intelligent way, in order to maximize the space used for actually editing the subtitles. We went through various iterations: in the beginning, we planned something along these lines: </p>
+                <figure>
+                    <img src="/assets/app-wireframe-1.png">
+                    <figcaption>
+                        Initial iteration of the app design
+                    </figcaption>
+                </figure>
+                <p>As you can see from this mockup, we planned a navbar containing most of the functionalities of the app on the top. As footer we imagined a small area dedicated to video controls: in this way, the actual video element on the top right would only have to show the subtitle preview in real time and all the logic would be handled by controls placed somewhere else. Your question now could be: why rolling your own video controls instead of using the default ones? The answer is that these controls need to influece also the other areas of the application (more details below), therefore we placed them in a place that we think suggests their "global" influence. As previously said, on the top right of the app we have a video preview of the subtitles: here the user can open a video from his or her filesystem and preview the subtitles they are editing directly on the video. On the top left there is a table which actually allows the editing of the subtitles. On the lower half of the screen we planned a waveform representing the currently selected video: on this waveform we tought to present little boxes containing the actual subtitles cues. This would allow for easier positioning on the subtitles, because it provides visual helps for identifing when a dialogue starts. Our idea is that, when the video plays, the table and the waveform update regularly to show the currently displayed cue of the subtitles: this is the "global" influece which made us deploy our own video controls. The two dividers (the vertical one between the table and the video and the horizontal one between the waveform and everything else) should be resizable by the user, allowing him or her to customize the experience as he/she likes.</p>
+                <p>We soon realized that this layout was doomed to failure. We were filling the footer with functionalities that had noting to do with video controls and the menus were not as intuitive as we hoped: they required more effort than what was strictly needed from the point of view of the user. Moreover, the bars on the top and on the bottom were taking up too much vertical space, which in our scenario is important and scarce. We tried to solve the problem by moving the controls to some FAB (floating action buttons) and we ended up with something like this:
+                <figure>
+                    <img src="/assets/app-wireframe-2.png">
+                    <figcaption>
+                        Layout with floating actions buttons. Clicking on an action button opens the various options.
+                    </figcaption>
+                </figure>
+                <p>This choice considerably improved the usage of vertical space, but hindered usability in various ways: opening the FABs for each operation was really clunky and inefficient, especially for operations done very often like playing the video, stopping it or adding a new subtitle line. For these reasons, this iteration lasted a single commit and was immediately replaced by what is the final layout of the application:</p>
+                <figure>
+                    <img src="/assets/app-wireframe-3.png">
+                    <figcaption>
+                        Final layout of the app.
+                    </figcaption>
+                </figure>
+                <p>As you can see, in this iteration we sacrificed some of the horizontal space to add links to actions done more frequently and we (hopefully) solved most of the issues that came with the previous designs. Moreover, you can see that we dropped the idea of the waveform: this is due to (mostly) technical reasons and lack of time. When clicking on the double right arrow at the bottom of the sidebar, it opens as shown here:</p>
+                <figure>
+                    <img src="/assets/app-wireframe-4.png">
+                    <figcaption>
+                        Layout with the sidebar opened
+                    </figcaption>
+                </figure>
+                <p>As of now, in this configuration only shows a textual description of the action of every button. However, if Subify is developed further and new functionalities are added, we can use this expanded sidebar as a page-wide menu: instead of expanding only to ~1/3 of the screen, it could cover the entire page and show additional buttons for the less frequently needed functionalities.</p>
+                <p>On startup, a slightly modified page welcomes the user, guiding him or her to the first actions needed to start using the app:</p>
+                <figure>
+                    <img src="/assets/app-wireframe-5.png">
+                    <figcaption>
+                        Layout on startup
+                    </figcaption>
+                </figure>
+                
+                <!-- CSS Grid -->
+                <h4 id="section-css-grid">Dividing the space: CSS Grid</h4>
+                <p>The main layout frame of the app, that is, the division in table area, video area and divider, is done through CSS Grid. This is a new layout technology which allows you to define a series of vertical and horizontal guidelines which then can be used for placing elements. Moreover, CSS Grid allows you to use the new <code>fr</code> measure unit, which allows you to state which fraction of the remaining free space should be allocated for the element you are styling.</p>
+                <p>We used this layout method also in other places, like the initial "startup" buttons. In this picture you can see the guidelines of the grid highlighted by the Chrome Developer Tools:</p>
+                <figure>
+                    <img src="/assets/app-css-grid.png">
+                    <figcaption>
+                        Example of CSS Grid in action
+                    </figcaption>
+                </figure>
+                <p>With CSS Grid and the <code>fr</code> measure unit, creating layout with objects centered vertically and horizontally has become very straightforward and does not require the creation of several "support" HTML elements which are required by other layout methodologies like flexbox. For example, the layout shown in the picture above was obtained with this CSS code:</p>
+                <pre><code>
+    #startup-video {
+        height: 100%;
+        width: 100%;
+
+        div.dotted-border {
+            display: grid;
+            grid-template-columns: 1fr 50% 1fr;
+            grid-template-rows: 1fr 3em 1fr;
+            grid-template-areas:
+            ". . ."
+            ". startup--upload-video ."
+            ". . .";
+        }
+
+        #startup--upload-video {
+            grid-area: startup--upload-video;
+        } 
+    }
+                    </code></pre>
+                    <p>CSS tricks has a nice summary of CSS Grid <a href="https://css-tricks.com/snippets/css/complete-guide-grid/">here</a>.</p>
+
+                <!-- Divider -->
+                <h4 id="section-divider">Moving the vertical divider</h4>
+                <p>One of the more difficult part of the layout was to allow the user to resize at his or her will the two main areas of the application. In order to achieve this result, we used a combination of CSS Grid, the <code>fr</code> unit and Javascript. As stated above, the main area of the application uses CSS Grid to generate the layout. As you can see from the pice of code in the previous paragraph, in order to change the structure of the grid we just need to act on the properties <code>grid-template-columns</code> and <code>grid-template-rows</code>. In this specific case, the vertical divider used in the application only needs to update the columns template to achieve the desidered effect.</p>
+                <p>On startup, the grid <code>div</code> containing the main area of the application has the following style:</p>
+                <pre><code>
+    .app {
+        display: grid;
+        grid-template-columns: 1fr $app_divider_width 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "table divider-vert video";
+
+        /* ... more ... */
+    }
+                </code></pre>
+                <p>Where <code>$app_divider_width</code> has the value of <code>5px</code>. As you can see, the grid has three columns: a central one with a fixed width used for the divider itself, a left one containing the subtitle table and a right one containing the video. In order to fill all the available space, we used the <code>fr</code> unit for the two side columns: both the table column and the video one will take up half of the space that remains <i>after</i> placing the central column (which has a fixed width). In order to move the divider, we just need to change via Javascript a single line of CSS, this one:</p>
+                <pre><code>
+    grid-template-columns: 1fr $app_divider_width 1fr;
+                </code></pre>
+                <p>By altering the proportion of free space given to the two areas we can easily obtain the effect we want. If, for example, the user drags the divider to three quarters of the screen, we just need to update the CSS as follows:</p>
+                <pre><code>
+    grid-template-columns: 0.75fr $app_divider_width 0.25fr;
+                </code></pre>
+                <p>The browser will recalculate the layout of everything for us and we will have achieved the result of extending the subtitle area and reducing the video area. Now that we know <i>what</i> we want to do, we only have to discuss <i>how</i>. In order to compute the correct position of the divider, we need to track the mouse via Javascript: when the user clicks on the divider, we set a boolean flag to <code>true</code> so that the rest of the code knows that the divider is moving. Moreover, we need to store the <code>x</code> position of the click, so that we know from where the dragging starts. After that, we need a global event handler on <code>window</code>, listening for the <code>mousemove</code> event: if the flag is true, it just stores the current position of the mouse. Finally, we need another event handler on <code>window</code> listening for the <code>mouseup</code> event: this one is responsible for clearing the boolean flag, therefore terminating the dragging operation.</p>
+                <p>As you can see, none of this event actually acts on the page's CSS. The naive approach would be to put the code that performs the update in the <code>mousemove</code> event handler: while this works, it is not the optimal choice if we want to achieve top performance (that is, 60fps) for our animation. In order to understand why, a bit of background is needed.</p>
+                <p>The browser tries to render every webpage at 60fps, that is, it updates the screen up to sixty times per second. If some CSS changes, the browser may get away with a small refresh (for example redrawing only the element that changes) or may require much more work like recomputing the entire layout of the page. Of course, this second case is way more expensive time-wise and should be limited to the bare minimum. If you are courious, on <a href="https://csstriggers.com/">this website</a> you can see which impact changing a CSS property has: triggering a <i>composite</i> is what you should aim for, as it happens directly on the GPU and is really fast; <i>paint</i> and especially <i>layout</i> are instead much slower. Of course, the type of animation we would like to do requires recomputing the entire layout, so we should try to do it as infrequently as possible while still maintaining the animation appearance: this means that we should try to update the grid <i>at most</i> once per frame.</p>
+                <p>The problem with Javascript event handler is that they can be invoked by the browser zero, one or <i>many</i> times per frame. For example, the handler for the <code>mousemove</code> event could be triggered many times per frame if the user moves the mouse quickly enough: therefore, if we used this handler to actually update the grid we would trigger the layout redesign multiple time per frame, resulting in very poor performance. To solve this problem, we need to debounce the <code>mousemove</code> event, as explained in detail in <a href="https://www.html5rocks.com/en/tutorials/speed/animations/">this article</a>. In order to do that, we need to user <code>requestAnimationFrame</code>. <code>requestAnimationFrame</code> is a Javascript function that accepts a callback and invokes that callback at the beginning of the next rendering cycle of the browser, therefore exactly once per frame: by updating the grid inside the callback we can be sure that we are updating the layout at most sixty times per second.</p>
+                <p>You can see the code that is performing exactly this <a href="https://bitbucket.org/teama8/subify/src/21c632e077d15f011f65dd326fcbee60a01e91d6/src/public/js/app/VerticalDivider.ts?at=master&fileviewer=file-view-default">here</a>. To have more details on how this class is wired up to the rest of the application just continue reading.</p>
+                <p>Now that we have the initial position of the mouse, how much it moved since the dragging started and a way to perform the update once per frame, we just need to actually compute the update. Our original <code>update</code> code looked like this:
+                <pre><code>
+    private update(): void {
+        if(!this.moveVert) return;
+
+        let p = (this.currX - this.offset)/this.appContainer.clientWidth;
+
+        this.appContainer.style.gridTemplateColumns = `${p}fr ${constants.dividerWidth}px ${1-p}fr`;
+        requestAnimationFrame(this.update);
+    }
+                </code></pre>
+                <p>We used the <code>currX</code> to compute a percentage <code>p</code>: this percentage measures the portion of free space that should be allocated to the table: the remaining fraction of free space would go to the video element. However, we soon encountered a quite strange behaviour, shown by the following video.</p>
+                <figure>
+                    <video controls>
+                        <source src="/assets/app-weird-grid.webm" type="video/webm">
+                        Your browser does not support the video tag.
+                      </video> 
+                    <figcaption>
+                        Strange behaviour with CSS grid
+                    </figcaption>
+                </figure>
+                <p>After some investigation, we understood what what happening: that "jump" happened only when we were trying to set the free space occupied by a portion of layout to a number of pixel smaller than the smallest possible size of that element. In order to solve this, we moved to using a fixed unit in the <code>update</code> function, reaching the result visible in the link. Finally, we only needed to set some <code>overflow: hidden</code> here and there to hide things when the screen area became to small.</p>
+
+                <!-- Table Header -->
+                <h4 id="section-table-header">The strange case of Doctor <i>SubtitleTable</i> and <i>Mr Sticky Header</i></h4>
+                <!-- TODO, running out of time to write this -->
+                <p>Brace yourself, because this one stole much more time than we foresaw. In fact, long enough that writing it here would cost us even more, thus here is the <a href="https://stackoverflow.com/questions/47578312/javascript-sticky-table-header-works-in-chrome-not-in-firefox">question</a> we posted on StackOverflow, figuring it out is up to you.</p>
+
+                <!-- App Logic -->
+                <h4 id="section-app-logic">Application Logic</h4>
+                <p>From the application logic point of view, our application is not <i>that</i> complex. We used ES6 modules to divide the code in a decent manner and we "encapsulated" every application "area" in a Javascript class: there is a class that handles the subtitle table, one that handles the video element, one for the sidebar, one for the video controls on the footer. The other classes contain the logic to parse and generate subtitle files and the logic to handle modal windows. All these elements are connected by a shared event bus, that is, a shared instance of the class <code>EventBus</code>: every class registers listeners on the event bus for the event it needs and dispatches to it events needed by other classes.</p>
+                <p>All the instances of these classes are initialized in the <code>app.ts</code> file, which is loaded by the application on startup. Here is a diagram with the main elements and the most important events they dispatch:</p>
+                <figure>
+                    <img src="/assets/app-architecture-and-events.svg">
+                    <figcaption>
+                        The application architecture and the main events dispatched.
+                    </figcaption>
+                </figure>
+                <p>To any event some custom information relative to that event can be associated. This allows the application to pass around the information from one component to all the others.</p>
+                <p><small>Written in this way, it seems waaay easier than it actually felt. I'm sad.</small></p>
+
+                <!-- File API -->
+                <h4 id="section-file-api">To upload or not to upload: Javascript File API</h4>
+                <p>The main idea behind this application is that it should work almost entirely client-side: you are editing subtitles on your machine, there is no need to send data back to our server. Up to a few years ago this would not have been possible but today, with the Javascript File API, it is quite easy. In order to use it, you just need to attach a Javascript handler to a normal <code>&lt;input type="file"&gt;</code> element: when the user selects a file, your handler will be invoked and you will have access to a Javascript object containing all the informations relative to the file (minus some which would pose security concerns). Add some CSS to make the inputs look pretty <i>et voilà</i>, you can work locally with user files without uploading them to your server.</p>
+                <p>Subify does exactly this: the class <code>SubtitleInput</code> contains the handler for the upload of the subtitle file, the class <code>LocalVideo</code> the one for the video file. Whenever a new subtitle file is uploaded, an event containing the file object is created and broadcasted to the event bus: it is then catched by the <code>SubtitleTable</code> class, which parses the file and generates the table. <code>LocalVideo</code> behaves similarly, with the difference that it broadcasts the event <i>and</i> updates the video element.</p>
+                <p>At this point, a problem emerged: the HTML <code>&lt;video&gt;</code> element only allows to show a video from an URL, not from a Javascript File object. Fortunately, the solution already exists and is called URL API. The method <code>URL.createObjectURL()</code> allows us to create temporary URL for Javascript objects: thus, it is sufficient to create a URL for the file object representing the video and setting the source attribute of the video tag to that URL.</p>
+
+                <!-- Parsing Subtitles -->
+                <h4 id="section-parsing-subtitles">Parsing subtitles &amp; realtime preview</h4>
+                <p>For parsing subtitles we ended up creating a fairly modular system. When a new subtitle file is uploaded or is created, it is passed to the <code>SubtitleImportExport</code> class: here its content is read and, based on the file extension, the proper parsing code is invoked. This code is stored in the various <code>FileFormats</code> classes. The output of the parsing procedure is an intermediate in-memory representation implemented as a list of <code>SubtitleEntry</code> instances: this is what is used by the rest of the application to display the subtitles and to edit them. Since the parsing may require some time, especially on long files, the entire code is made asynchronous through the use of <code>Promise</code>s.</p>
+                <p><strong>On supporting other subtitles format</strong>. When we designed <code>SubtitleEntry</code> we based ourselfes on the SRT file format, which is rather easy: each entry has an id, a start time, an end time and some text. We thought that other subtitles format would be rather similar, therefore adding the support for them would only require adding a new file format class. We were nothing but sweet summer child, and the winter hit us hard when we discovered the existance of <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API">WebVTT</a>. Adding support for this new, more complex format would be possible, but would require also changes to <code>SubtitleEntry</code> and the rest of the application. Moreover, it would probably require a fully-fledged lexer/parser: thus, it is way beyond our initial idea for this project. If there is enough interest in this project we could consider adding it, but for now we do not support anything more complex than SRT.</p>
+                <p>The <code>SubtitleImportExport</code> class also allows to convert a list of <code>SubtitleEntry</code> back to a subtitle file. In order to do this, a string is generated from the list: this string is then embedded in a binary <code>Blob</code> and a temporary URL is generated for it through the URL API.<p>
+                <p>Once reached this point, realising a real-time preview of the subtitles (with all the changes) was relatively easy. Whenever <code>SubtitleTable</code> detects a change in the subtitles, it uses <code>SubtitleImportExport</code> to generate a new "virtual" file and broadcasts the generated URL to the event bus. <code>LocalVideo</code> catches that event and updates the HTML <code>&lt;video&gt;</code> element to have as subtitles the content of the new URL by using the native subtitle support. The is only a small inconvenient: the <code>&lt;video&gt;</code> tag only supports the WebVTT format. Therefore, we added a partial WebVTT exporter and we made it the default export format.</p>
+
+                <!-- Sidebar -->
+                <h4 id="section-sidebar">Making the sidebar work</h4>
+                <p>Maybe the easiest way to create a sliding sidebar is through pure CSS. In our case, we made the sidebar a fixed width container, partially translated outside the viewport such that only the buttons are shown (as can be seen in the latest version's screenshots).<br/>
+                Then we use a hidden <code>&lt;input type="checkbox"&gt;</code> to trigger an animated transposition of the <code>sidebar</code> container fully inside the viewport, as demonstrated in the snippet below.</p>
+
+                <figure>
+                    <div class="jsfiddle">
+                        <iframe sandbox="allow-modals allow-forms allow-scripts allow-same-origin allow-popups" src="https://jsfiddle.net/rscolati/k9q6oLcx/embedded/html,css,result/" width="100%" height="300" frameborder="0"></iframe>
+                    </div>
+                    <figcaption>
+                        Example implementation of a CSS-only sidebar.
+                    </figcaption>
+                </figure>
+
+                <!-- Video Controls -->
+                <h4 id="section-video-controls">Wiring the video controls</h4>
+                <p>Rolling our own video controls was nothing special. Styling the seekbars (they are <code>&lt;input type="range"&gt;</code>) required a bit of effort, especially for achieving a consistent appearance on different browsers, but everything else was pretty straightforward. Also here we wanted to do the animation of the seekbar in the most efficient way: we used again <code>requestAnimationFrame</code>, calculating once per frame the correct position of the seekbar and updating it. This allows us to have a smooth animation running at 60fps with very little effort.</p>
+                <p>With our version of the controls there is only a single problem: they are not particularly accessible. More on this at the end of the page.</p>
+
+                <!-- Modals -->
+                <h4 id="section-modals">Modal windows</h4>
+                <p>As we progressed with the application we realised that we needed some basic system to show errors to the user, for example when a time in the wrong format was entered. We ended up using the standard modal element of Bulma: it works very well and does everything that we need. The HTML element is wrapped by a <code>ErrorModalWindow</code> Javascript class that listens on the shared event bus for a particular event containing the error message: when it is received, the class toggles some CSS classes and the modal window is shown.</p>
+                <p>This system is easy and works decently, but it started to break when we implemented the "Shift forward" functionality, because we needed to acquire user input through a modal window. The current solution works similarly to the error modal window: an event is published and the modal window is shown. The issuer of the event includes in the event two callbacks, one to be called if the modal input is closed with the "Ok" button and one to be called in any other case (failure). However, with the current implementation if the application tries to show two modal windows together, it will fail. If a more complex modal window system is needed, this problem should be solved. This being said, for our limited needs the system works rather well.</p>
+
+                <!-- Small Screens -->
+                <h4 id="section-small-screens">Small screens</h4>
+                <p>We evaluated our use case and decided that on screen smaller than 700px out app cannot work properly. Squeezing all the interface in the screen of a phone or a small tablet would make the app unusable. Therefore, we added a media query that detects if the current screen is too small: in that case, it hides the entire application and only shows an error message explaining the problem. By using the modal element of Bulma this was rather easy to implement and required only a few line of CSS.</p>
+
+                <h3 id="section-devops">DevOps</h3>
+
+                <!-- Drafts -->
+                <h4 id="section-drafts">Early drafts</h4>
+                <p>Right from the beginning we spent some time reasoning on how to deliver the app. Considerations on <a href="#section-scalability">scalability</a> lead us to ditch JavaScript in favour of TypeScript early on. But still, the question remained; how could we test, build, and deploy the app in as little steps as possible?</p>
+                <p>We came up with the following plan, involving separate servers for production and building, services like Docker and Cloudflare, and some buzzwords, but we still didn't have an idea on how to actually implement it.</p>
+                <figure>
+                    <img src="/assets/app-deploy-draft.png">
+                    <figcaption>
+                        An early draft for the app's deployment.
+                    </figcaption>
+                </figure>
+
+                <!-- build -->
+                <h4 id="section-build">Develop, build and test</h4>
+                <p>Right in the beginning, about when we introduced TypeScript, we noticed that we couldn't possibly keep adding more and more complex commands to our <code>package.json</code> file to adapt our development workflow to the increasing complexity of our app. After all, we already had two separate sets of TypeScript source files to compile (one for the backend and one for the frontend), static assets to package, Sass files to convert to Css files, tests to perform, etcetera.<br/>
+                Thus we decided on using <code><a href="https://gulpjs.com/">gulp</a></code>, which sells itself as <i>[...] a toolkit for automating painful or time-consuming tasks in your development workflow, so you can stop messing around and build something.</i> Sounds great, right?</p>
+                <p>Fact is, it <i>is</i> great. A gulpfile is nothing else than an elaborate JavaScript file, which does the building and all the other tedious stuff like copying static files, rebuilding the whole app on changes, and synchronizing the browser with the latest build, automagically.</p>
+                <p>To complete the development workflow, we added some unit and integration tests, mainly to do some regression testing on the critical parts of the application, and for this we went with <code><a href="https://mochajs.org/">Mocha</a></code>, a JavaScript test framework.</p>
+
+                <!-- Deploy -->
+                <h4 id="section-deploy">Then we deploy, obviously</h4>
+                <p>The deployment plans were straight-forward, we only needed a domain, a server on which to run our app, and some way to get the app to the server.</p>
+                <p>Since we use <code>git</code> as our version control system and host our application's code on <code><a href="https://bitbucket.org/">Bitbucket</a></code>, a web-based version control repository hosting service, once the server and domain were set up, we only needed to</p>
+                <ol>
+                    <li>login to the server via <code>ssh</code></li>
+                    <li><code>git pull</code> the latest version of the app</li>
+                    <li><code>gulp build</code> the application</li>
+                    <li>and finally run the Node.js server</li>
+                </ol>
+                <p>Not bad, but that's still like four different steps after the <code>git push</code> that commits the latest developed and tested version into our repository.</p>
+
+                <!-- Docker -->
+                <h4 id="section-docker">On Docker, or; <i>How are we going to tie it all together?</i></h4>
+                <p>Enter <code><a href="">Docker</a></code>, or better, Docker container images, i.e. lightweight, stand-alone, executable packages, which contain everything (and little more) needed to run a piece of software.<br/>
+                We figured that if we had an image containing our application and everything needed in order to run our application, we could simply pull the image on the server and run it, without needing to rebuild it.</p>
+                
+                <p>In order to build a Docker image, we use the following <code>Dockerfile</code>, which basically specifies the base on which to build our image (the official <code><a href="https://hub.docker.com/_/node/">Node.js</a></code> Docker image, built on a minimal Linux distribution with everything needed to run Node.js applications), creates the <code>app</code> user with all his directories, builds and tests the application itself, and finally runs it.</p>
+                <pre><code>
+# nodejs 8.9.0 LTS
+FROM node:carbon-slim
+
+# Add unprivileged user for app
+RUN useradd --user-group --create-home --shell /bin/false app 
+ENV HOME=/home/app
+
+# Create app directory
+WORKDIR $HOME/subify
+COPY . $HOME/subify
+RUN chown -R app:app $HOME/*
+
+# Build and test app
+USER app
+RUN yarn install && yarn build && yarn test
+
+CMD [ "yarn", "serve" ]
+                </code></pre>
+
+                <p>Still, we only moved the building and testing of the application inside a container, how could we automate everything?</p>
+
+                <!-- Finally -->
+                <h4 id="section-finally">Finally, full automation</h4>
+                <p>As it turned out, we could use <code><a href="https://cloud.docker.com/">Docker Cloud</a></code>, a hosted registry service for Docker images, to build our application image.</p>
+                <p>How does it work? Basically, we gave the registry read permission on our Bitbucket repository, and whenever we <code>git push</code> to the repository, the service checks wether the commit has a tag matching the Regex <code>/^[0-9.]+</code>, for example <code>0.1.0</code>, and, if it does, triggers a build according to our <code>Dockerfile</code>.</p>
+
+                <figure>
+                    <img src="/assets/app-docker-build.png">
+                    <figcaption>
+                        Screenshot of the registry's <i>Build</i> page.
+                    </figcaption>
+                </figure>
+
+                <p>Additionally to the automated building of the Docker image, we specified a webhook, triggered by the succesful build of the Docker image, which targets an URL exposed by our server.<br/>
+                The URL is exposed by a small webserver which, whenever triggered, calls the following script, which pulls the latest image from the registry, stops the running image and removes it, and starts the latest version.</p>
+                <pre><code>
+#!/bin/bash
+docker pull rscolati/subify:latest
+docker stop subify
+docker rm subify
+docker run --name subify -d -p 8082:8080\
+    --restart unless-stopped rscolati/subify:latest
+                </code></pre>
+                <p>This leaves us with a setup which reduces our deployment steps to the following</p>
+                <ol>
+                    <li><code>git push</code> the latest changes to the repository</li>
+                </ol>
+                <p>That's neat, right?</p>
+
+                <!-- Future -->
+                <h3 id="section-future">The Future</h3>
+                <p>This project is not finished, there is still plenty to do. There are many subtitle formats that could be added, there are many issues should be solved, there is a bunch of work to do. We should consider service workers, we should address all the usability issues that we discovered. We should add appropriate security headers and perform a general cleanup of the source code, maybe adding some documentation strings here and there. Last but not least we should improve the accessibility of the app: our current situation is pretty poor, even normal users have troubles using the app, let alone impaired ones.</p>
+                <p>The entire app should be tested on more browser, should be made more cross-browser compatible, the backend should be removed and the entire site should be migrated to a serverless platform. The build should be improved by adding minification, improved linting, etcetera, etcetera, <i>etcetera</i>. We have a Trello board full of things that we should do. But we did enough for the project, and that will suffice.</p>
+                <p>The application will remain online, probably at another domain. We will probably still work on it, now and then, when we have some time that we want to spend on this. If it gets some traction and some users, we many get back on working on it more seriously. The source code is on Bitbucket: if you find a bug you can open an issue there. If we have time, we will try to fix it.</p>
+                <p><strike>If you know how to program</strike> Stupid if clause, considering the type of article you are reading until the end. Since you know how to program, feel free to submit pull requests and similar: they would be very much appreciated.</p>
+                <p>We really hope this article shed some light on what we did and why we did it the way we did.</p>
+                <pre>
+[23:58] &lt;Matteo&gt; If you have any question
+[23:58] &lt;Matteo&gt; contacts are at the top of this page.
+[23:58] &lt;Remo&gt; Thank you for reading
+[23:59] == User &lt;Matteo&gt; left the channel 
+[23:59] == User &lt;Remo&gt; left the channel
+[00:00] == Server shutting down in 10s...</pre>
+                <div>
+
+        </div>
+    </section>
+
+    <% include ../partials/footer %>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+    "name": "Subify - Subtitle editing made simple",
+    "short_name": "Subify",
+    "manifest_version": 2,
+    "version": "1.0.0",
+
+    "default_locale": "en",
+    "description": "A simple web app for editing subtitle files",
+    "icons": [{
+        "src": "/assets/logo-1200x1200.png",
+        "sizes": "1200x1200",
+        "type": "image/png"
+    }],
+    "start_url": "/app",
+    "display": "standalone",
+    "orientation": "horizontal",
+    "background_color": "#000000",
+    "theme_color": "#333333"
+}

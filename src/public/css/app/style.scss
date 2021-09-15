@@ -1,0 +1,150 @@
+@import 'app/constants';
+
+/***********
+ * General *
+ ***********/
+
+body {
+    background-color: #fff;
+    overflow-y: hidden;
+}
+
+* {
+    box-sizing: border-box;
+    -moz-box-sizing:border-box;
+}
+
+/******************
+ * App Containers *
+ ******************/
+
+.app {
+    font-size: .9rem;
+}
+
+.app-video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.app-divider-horizontal {
+    background-color: $app_divider_bg;
+    cursor: ns-resize;
+}
+
+.app-divider-vertical {
+    background-color: $app_divider_bg;
+    cursor: ew-resize;
+}
+
+/**
+ * Sidebar
+ */
+
+.sidebar {
+    background-color: $sidebar_bg;
+    color: $sidebar_fg;
+    position: fixed;
+    left: $sidebar_Xoffset;
+    height: 100vh;
+    width: $sidebar_width;
+    z-index: 100;
+    will-change: transform;
+    transition: transform .5s ease;
+}
+
+@mixin sidebar-icon() {
+    min-width: $sidebar_width_reduced;
+    line-height: $sidebar_width_reduced;
+    text-align: center;
+}
+
+/* Toggle */
+.sidebar-toggle-label {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    z-index: 200;
+    background-color: $sidebar_btn_bg;
+    cursor: pointer;
+
+    * { color: $sidebar_btn_fg; }
+    &:hover * { 
+        color: $sidebar_btn_fg_hover;
+        background-color: $sidebar_btn_bg_hover; 
+    }
+
+    &:active * {
+        background-color: $sidebar_btn_bg_active;
+    }
+
+    i { @include sidebar-icon(); }
+}
+
+/* Quick Controls */
+.quick-controls {
+    color: $sidebar_fg;
+
+    label, a {
+        display: block;
+        cursor: pointer;
+        color: $sidebar_menu_fg;
+
+        * { color: $sidebar_menu_fg; }
+        &:hover * { 
+            color: $sidebar_menu_fg_hover; 
+            background-color: $sidebar_menu_bg_hover;
+        }
+
+        &:active * {
+            background-color: $sidebar_menu_bg_active;
+        }
+
+        i { @include sidebar-icon(); }
+
+        .btn-label {
+            float: left;
+            padding: 0 1rem;
+            min-width: -$sidebar_Xoffset;
+            line-height: $sidebar_width_reduced;
+
+        }
+    }
+}
+
+input[id=sidebar-toggle] {
+    display: none;
+ }
+
+input[id=sidebar-toggle]:checked ~ .sidebar {
+    transform: translateX(-$sidebar_Xoffset);
+
+    .sidebar-toggle-label {
+        i {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+/******************
+ * App Components *
+ ******************/
+
+#video-upload, #subtitle-upload {
+    display: none;
+}
+
+#local-video {
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+#app-table {
+    padding: 0;
+    padding-left: .5rem;
+    border: .5rem white solid;
+    border-left: none;
+}

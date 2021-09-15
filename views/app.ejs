@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" style="overflow:hidden;">
+<head>
+    <% include ./partials/head %>
+    <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+    <% include ./partials/noscriptBanner %>
+
+    <div id="error-screen-too-small">
+        <div class="modal is-active">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                <div class="box">
+                    <div class="level">
+                        <div class="level-item has-text-centered">
+                            <span class="icon is-large has-text-danger">
+                                <i class="fa fa-3x fa-exclamation-triangle"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="level">
+                        <div class="level-item has-text-centered">
+                            <p><strong>Apologies, but your screen is too small</strong></p>
+                       </div>
+                    </div>
+                    <div class="level">
+                        <div class="level-item has-text-centered">
+                            <p>Due to the nature of this app, we can guarantee a proper layout only on screen larger than 700px.
+                               Try to visit this page on a larger screen to use Subify.</p>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <% include ./partials/browsersyncInject %>
+
+    <input type="checkbox" id="sidebar-toggle">
+    <div id="sidebar" class="sidebar">
+        
+        <!-- Toggle Button -->
+        <label for="sidebar-toggle" class="sidebar-toggle-label">
+            <i class="fa fa-2x fa-angle-double-right"></i>
+        </label>
+
+        <!-- Quick Access Menu -->
+        <div class="quick-controls">
+            <a id="btn-play">
+                <div class="btn-label">Player Play</div>
+                <i id="btn-play-toggle" class="fa fa-lg fa-play"></i>
+            </a>
+
+            <label for="video-upload">
+                <div class="btn-label">Upload Video</div>
+                <i class="fa fa-lg fa-video-camera"></i>
+            </label>
+            <input id="video-upload" type="file" name="video" />
+
+            <label for="subtitle-upload">
+                <div class="btn-label">Upload Subtitle File</div>
+                <i class="fa fa-lg fa-cc"></i>
+            </label>
+            <input id="subtitle-upload" type="file" name="subtitle" />
+
+            <a id="btn-add-new-line">
+                <div class="btn-label">Add subtitle line</div>
+                <i class="fa fa-lg fa-plus"></i>
+            </a>
+            <a id="btn-delete-line">
+                <div class="btn-label">Delete subtitle line</div>
+                <i class="fa fa-lg fa-trash"></i>
+            </a>
+
+            <label>
+                <a id="btn-export" download="subtitle.srt">
+                    <div class="btn-label">Export Subtitle File</div>
+                    <i class="fa fa-lg fa-floppy-o"></i>
+                </a>
+            </label>
+
+            <a id="btn-shift-forward">
+                <div class="btn-label">Shift Forward</div>
+                <i class="fa fa-lg fa-angle-right"></i>
+            </a>
+
+            <a id="btn-shift-backward">
+                <div class="btn-label">Shift Backward</div>
+                <i class="fa fa-lg fa-angle-left"></i>
+            </a>
+
+            <a href="/">
+                <div class="btn-label">Return to Homepage</div>
+                <i class="fa fa-lg fa-home"></i>
+            </a>
+        </div>
+
+        <!-- Full Controls Menu -->
+        <div class="full-controls">
+
+        </div>
+
+    </div>
+
+    <div id="modal-error" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box media">
+                <div class="media-left">
+                    <span class="icon is-large has-text-danger">
+                        <i class="fa fa-3x fa-exclamation-triangle"></i>
+                    </span>
+                </div>
+                <div class="media-content">
+                    <p><strong>Error!</strong></p>
+                    <p id="error-message">Error message</p>
+                </div>
+            </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+
+    <div id="modal-input-time" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box">
+                <div class="content">
+                    <div class="field">
+                        <label id="input-message" for="input-time-input" class="label">Insert the value required:</label>
+                        <div class="control">
+                            <input id="input-time-input" type="text" placeholder="00:00:00,000" class="input"></input>
+                        </div>
+                    </div>
+                    <div class="field is-grouped is-grouped-centered">
+                        <div class="control">
+                            <button id="input-ok-button" type="button" class="button is-link">Ok</button>
+                        </div>
+                        <div class="control">
+                            <button id="input-cancel-button" type="button" class="button">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+
+    <div id="app" class="app">
+
+        <div id="app-table" class="app-table-container">
+            <table id="subtitle-table-header" class="table is-bordered is-narrow is-fullwidth hidden">
+              <thead>
+                <tr>
+                  <th>Pos</th>
+                  <th>Start</th>
+                  <th>End</th>
+                  <th>Text</th>
+                </tr>
+              </thead>
+            </table>
+            <table id="subtitle-table" class="table is-bordered is-striped is-narrow is-fullwidth hidden">
+              <tbody>
+              </tbody>
+            </table>
+            <div id="startup-app-table">
+                <div class="dotted-border">
+                    <div id="sat--upload-file" class="startup-button">
+                        <label for="subtitle-upload">
+                            <i class="fa fa-lg fa-cc"></i>
+                            <p>Upload subtitles</p>
+                        </label>
+                    </div>
+                    <div id="sat--or">
+                        <span>or</span>
+                    </div>
+                    <div id="sat--create-new" class="startup-button">
+                        <div>
+                            <i class="fa fa-lg fa-plus-circle"></i>
+                            <p>Create new</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="div-vert" class="app-divider-vertical"></div>
+
+        <div id="app-video" class="app-video-container">
+            <video id="local-video" class="hidden"></video>
+            <div id="startup-video">
+                <div class="dotted-border">
+                    <div class="startup-button" id="startup--upload-video">
+                        <label for="video-upload">
+                            <i class="fa fa-lg fa-video-camera"></i>
+                            <p>Upload video</p>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="app-progress" class="app-progress-container">
+        <div id="ctrl-right">
+            <span id="current-time">0:00</span>
+            <span id="total-time">0:00</span>
+            <span id="btn-mute"><i class="fa fa-volume-up fa-lg fa-fw"></i></span>
+            <input id="volume" type="range" value="100" max="100">
+            <span id="btn-full-screen"><i class="fa fa-expand fa-lg fa-fw"></i></span>
+        </div>
+        <div id="ctrl-left">
+            <input id="progress" type="range" step="0.0001" value="0" max="100">
+        </div>
+    </div>
+
+    <script type="module" src="/js/app.js"></script>
+</body>
+</html>

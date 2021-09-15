@@ -1,0 +1,68 @@
+/* NOTE: reflect changes (in sizes) in app/constants.js */
+
+/**
+ * Sidebar
+ */
+
+/* Size */
+$sidebar_width: 265px;
+$sidebar_Xoffset: -($sidebar_width - 50px);                 /* 215px */
+$sidebar_width_reduced: $sidebar_width + $sidebar_Xoffset;  /* 50 */
+
+/* Colors */
+$sidebar_bg: #333;
+$sidebar_fg: #aaa;
+$sidebar_fg_hover: #ccc;
+/* Toggle Button */
+$sidebar_btn_bg: #444;
+$sidebar_btn_bg_hover: #555;
+$sidebar_btn_bg_active: #666;
+$sidebar_btn_fg: $sidebar_fg;
+$sidebar_btn_fg_hover: $sidebar_fg_hover;
+/* Menu */
+$sidebar_menu_bg_hover: #444;
+$sidebar_menu_fg: $sidebar_fg;
+$sidebar_menu_fg_hover: $sidebar_fg_hover;
+$sidebar_menu_bg_active: #555;
+
+/**
+ * App Startup
+ */
+
+$startup_bg: $sidebar_btn_bg;
+$startup_bg_hover: $sidebar_btn_bg_hover;
+$startup_fg: $sidebar_fg;
+$startup_fg_hover: $sidebar_fg_hover;
+$startup_border: $startup_fg;
+$startup_bg_active: $sidebar_btn_bg_active;
+
+
+/**
+ * App Dividers
+ */
+
+/* Size */
+$app_divider_width: 5px;
+
+/*Colors */
+$app_divider_bg: #dbdbdb;
+
+/**
+ * Progress Bar
+ */
+
+/* Size */
+$progress_bar_height: 25px;
+
+/* Colors */
+$progress_bar_fg: #dbdbdb;
+$progress_bar_fg_hl: #00b6f0;
+$progress_bar_bg: #666;
+
+/**
+ *  Subtitle table
+ */
+$index_column_width: 40px;
+$time_column_width: 100px;
+$text_column_width: auto;
+$subtitle_table_header_height: 29px;
